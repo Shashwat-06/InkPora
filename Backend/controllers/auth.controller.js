@@ -183,3 +183,17 @@ export const resetPassword = async (req, res) => {
     res.status(400).json({ success: false, message: err.message });
   }
 };
+
+export const checkAuth = async (req, res) => {
+  const userId = req.userId;
+  const user = await User.findById(userId).select("-password");
+  try {
+    if (!user) {
+      res.status(400).json({ success: false, message: "No User Found" });
+    }
+    res.status(200).json({ success: true, user });
+    // res.status(200).json({ success: true, user });
+  } catch (err) {
+    res.status(400).json({ success: false, message: err.message });
+  }
+};
