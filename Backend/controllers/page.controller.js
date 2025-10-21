@@ -5,3 +5,9 @@ export const productData = async (req, res) => {
   console.log(data);
   res.send(data);
 };
+
+export const individualProduct = async (req, res) => {
+  const { id } = req.params;
+  const data = await Product.findById(id);
+  res.send(data);
+};

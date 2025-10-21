@@ -1,6 +1,11 @@
+import { Navigate, useNavigate } from "react-router-dom";
 function Products({ item }) {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate(`/products/${item._id}`);
+  };
   return (
-    <div className="w-70 m-10 flex flex-col ">
+    <div onClick={handleClick} className="w-70 m-10 flex flex-col ">
       <div className="h-70 w-70 bg-inkporaFrame flex flex-col justify-around items-center ">
         <img
           src={item.productImage}
