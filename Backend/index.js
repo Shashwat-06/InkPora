@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import pageRoutes from "./routes/page.route.js";
 import authRoutes from "./routes/auth.route.js";
+import cartRoutes from "./routes/cart.route.js";
 import { connectDb } from "./DB/connectDB.js";
 import cors from "cors";
 
@@ -22,3 +23,4 @@ app.listen(process.env.PORT || 8080, () => {
 
 app.use("/api/products", pageRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/cart", cartRoutes);

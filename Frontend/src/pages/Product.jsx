@@ -27,6 +27,8 @@ function Product() {
         <h1>{product.title}</h1>
         <p>{product.description}</p>
         <p>&#8377;{product.price}</p>
+        <p>details: {product.detail}</p>
+        <p>category: {product.category}</p>
       </div>
     </div>
   );

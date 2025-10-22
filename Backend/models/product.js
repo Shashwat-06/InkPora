@@ -5,6 +5,11 @@ const productSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  category: {
+    type: String,
+    enum: ["pen", "diary"],
+    required: true,
+  },
   description: {
     type: String,
     required: true,
@@ -14,6 +19,9 @@ const productSchema = new mongoose.Schema({
   },
   price: {
     type: Number,
+  },
+  detail: {
+    type: String,
   },
 });
 

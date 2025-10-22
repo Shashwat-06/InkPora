@@ -29,7 +29,11 @@ function Header() {
           </button>
         </form>
       </div>
-      <div>Login/Signup</div>
+      <div className="pr-2">
+        <NavLink to={"/signup"}>Signup</NavLink>
+        &nbsp;/&nbsp;
+        <NavLink to={"/login"}>Login</NavLink>
+      </div>
     </div>
   );
 }

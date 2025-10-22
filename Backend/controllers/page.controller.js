@@ -1,4 +1,5 @@
 import { Product } from "../models/product.js";
+import { User } from "../models/user.js";
 
 export const productData = async (req, res) => {
   const data = await Product.find({});
