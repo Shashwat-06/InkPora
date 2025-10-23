@@ -19,11 +19,12 @@ function Pens() {
 
   return (
     <>
-      <div className="mx-35 grid grid-cols-4 gap-0.5 justify-evenly">
+      {/* <div className="mx-35 grid grid-cols-4 gap-0.5 justify-evenly">
         {product.map((item) => {
           return <Products key={item._id} item={item} />;
         })}
-      </div>
+      </div> */}
+      <h1>products</h1>
     </>
   );
 }

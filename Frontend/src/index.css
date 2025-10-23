@@ -1,8 +1,15 @@
 @import "tailwindcss";
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 @theme {
   --color-inkpora: #faf6f0;
   --color-inkporaPink: #f5ddd0;
   --color-inkporaFrame: #f5ecda;
+  --color-inkporaFooter: #273234;
   --font-playfair: "Playfair Display", serif;
+  --font-greatvibes: "Great Vibes", cursive;
+  --font-dancingscript: "Dancing Script", cursive;
+  --font-poppins: "Poppins", sans-serif;
 }

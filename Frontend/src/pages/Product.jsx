@@ -15,21 +15,24 @@ function Product() {
       });
   }, []);
   return (
-    <div className="flex flex-row p-30">
-      <div className=" flex bg-inkporaFrame h-110 w-110 justify-center items-center">
-        <img
-          src={product.productImage}
-          alt="productImg"
-          className="h-100 w-100"
-        />
-      </div>
-      <div className="px-5">
-        <h1>{product.title}</h1>
-        <p>{product.description}</p>
-        <p>&#8377;{product.price}</p>
-        <p>details: {product.detail}</p>
-        <p>category: {product.category}</p>
-      </div>
+    // <div className="flex flex-row p-30">
+    //   <div className=" flex bg-inkporaFrame h-110 w-110 justify-center items-center">
+    //     <img
+    //       src={product.productImage}
+    //       alt="productImg"
+    //       className="h-100 w-100"
+    //     />
+    //   </div>
+    //   <div className="px-5">
+    //     <h1>{product.title}</h1>
+    //     <p>{product.description}</p>
+    //     <p>&#8377;{product.price}</p>
+    //     <p>details: {product.detail}</p>
+    //     <p>category: {product.category}</p>
+    //   </div>
+    // </div>
+    <div>
+      <h1> individual product page</h1>
     </div>
   );
 }

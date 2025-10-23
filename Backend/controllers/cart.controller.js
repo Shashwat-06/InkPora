@@ -2,6 +2,7 @@ import { Product } from "../models/product.js";
 import { User } from "../models/user.js";
 import { resetPasswordSuccessMail } from "../resend/resend.config.js";
 
+// Add to cart
 export const addToCart = async (req, res) => {
   const { productId, quantity } = req.body;
 
@@ -38,6 +39,7 @@ export const addToCart = async (req, res) => {
   }
 };
 
+// Delete from cart
 export const deleteFromCart = async (req, res) => {
   const { productId } = req.body;
   const userId = req.userId;
