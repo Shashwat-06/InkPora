@@ -13,7 +13,7 @@ function Home() {
   console.log("API URL:", import.meta.env.VITE_API_URL);
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_API_URL}/api/products/`)
+      .get(`https://api.inkpora.shop/api/products/`)
       .then((response) => {
         setProducts(response.data);
       })
