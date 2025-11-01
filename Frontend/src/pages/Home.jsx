@@ -10,6 +10,7 @@ function Home() {
 
   const scrollPrev = () => emblaApi && emblaApi.scrollPrev();
   const scrollNext = () => emblaApi && emblaApi.scrollNext();
+  console.log("API URL:", import.meta.env.VITE_API_URL);
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_API_URL}/api/products/`)

@@ -1,1 +1,1 @@
-this is a fullstack ecommerce project
+this is a fullstack ecommerce project.
