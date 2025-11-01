@@ -1,22 +1,31 @@
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 function Products({ item }) {
   const navigate = useNavigate();
+
   const handleClick = () => {
     navigate(`/products/${item._id}`);
   };
+
   return (
-    <div onClick={handleClick} className="w-70 m-10 flex flex-col ">
-      <div className="h-70 w-70 bg-inkporaFrame flex flex-col justify-around items-center ">
+    <div
+      onClick={handleClick}
+      className="cursor-pointer w-40 lg:w-40 xl:w-50 2xl:w-60 flex flex-col items-center transition-transform hover:scale-105"
+    >
+      <div className="h-56 xl:h-80 w-full bg-inkporaFrame shadow-md flex justify-center items-center overflow-hidden">
         <img
           src={item.productImage}
-          className="h-60 w-60 hover:h-62 hover:w-62 transition-all duration-200"
+          alt={item.title}
+          className="h-full  transition-all duration-300 hover:scale-105 p-4"
         />
       </div>
-      <div className="flex justify-between font-medium pt-3 text-lg">
-        <h1 className="pt-3  font-playfair">{item.title}</h1>
-        <h1 className="pt-1.5  font-playfair">&#8377;{item.price}</h1>
+
+      <div className="flex justify-between items-center w-full font-medium pt-3 text-sm sm:text-base">
+        <h1 className="font-playfair">{item.title}</h1>
+        <h1 className="font-playfair">&#8377;{item.price}</h1>
       </div>
-      <h1 className="pt-1.5 ">{item.description}</h1>
+
+      <p className="pt-1 text-gray-600 text-xs sm:text-sm">{item.detail}</p>
     </div>
   );
 }

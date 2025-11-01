@@ -21,13 +21,13 @@ function Home() {
       });
   }, []);
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col bg-inkporabg">
       <div className="relative w-full p-4 px-10 xl:px-40">
         <img src="/assets/smPoster1.png" className="md:hidden z-0 " />
         <img src="/assets/lgPoster.png" className=" hidden md:flex z-0 " />
         <Link
           to={"/pens"}
-          className="absolute bottom-40 md:bottom-15 left-1/2 transform -translate-x-1/2 bg-inkporaFrame text-black font-light px-6 py-2 shadow-md hover:bg-inkporaFrame hover:text-gray-800 transition-all duration-300 h-10 lg:text-3xl lg:h-16"
+          className="absolute bottom-40 md:bottom-15 left-1/2 transform -translate-x-1/2 bg-inkporabg text-black font-light px-6 py-2 shadow-md hover:bg-inkporaFrame hover:text-gray-800 transition-all duration-300 h-10 lg:text-3xl lg:h-16"
         >
           Shop Now
         </Link>
@@ -80,7 +80,7 @@ function Home() {
         </button>
       </div>
 
-      <div className="bg-inkporaFrame mt-5 w-full flex flex-col items-center py-20 ">
+      <div className="bg-inkporabg mt-5 w-full flex flex-col items-center py-20 ">
         <h2 className="font-dancingscript text-4xl font-light mb-4 text-center">
           Follow us @inkPora
         </h2>

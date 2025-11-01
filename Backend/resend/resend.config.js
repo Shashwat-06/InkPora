@@ -263,7 +263,7 @@ export const resetPasswordMail = async function (email, resetpasswordtoken) {
       </div>
       <div class="content">
         <p>Seems like you forgot your password for InkPora inc. If this is true, Click below to reset your password</p>
-                <a href="http://localhost:8080/api/auth/resetPassword/${resetpasswordtoken}" class="btn" target="_blank">Reset My Password</a>
+                <a href="http://localhost:5173/resetPassword/${resetpasswordtoken}" class="btn" target="_blank">Reset My Password</a>
 
       </div>
       <div class="footer">

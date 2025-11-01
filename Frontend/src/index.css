@@ -6,7 +6,8 @@
 @theme {
   --color-inkpora: #faf6f0;
   --color-inkporaPink: #f5ddd0;
-  --color-inkporaFrame: #f5ecda;
+  --color-inkporabg: #faf6f0;
+  --color-inkporaFrame: #f5eddf;
   --color-inkporaFooter: #273234;
   --font-playfair: "Playfair Display", serif;
   --font-greatvibes: "Great Vibes", cursive;

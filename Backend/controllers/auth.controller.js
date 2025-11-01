@@ -90,9 +90,19 @@ export const login = async (req, res) => {
     if (!email || !password) {
       throw new Error("All fields are required");
     }
+
     const user = await User.findOne({ email });
     if (!user) {
       throw new Error("User not found");
+    }
+
+    if (!user.isVerified) {
+      return res.status(403).json({
+        success: false,
+        message: "Please verify your email before logging in.",
+        unverified: true,
+        email: user.email,
+      });
     }
 
     const isPasswordValid = await bcrypt.compare(password, user.password);
@@ -161,7 +171,7 @@ export const resetPassword = async (req, res) => {
     });
 
     if (!user) {
-      res
+      return res
         .status(400)
         .json({ success: false, message: "invalid or expired token" });
     }
@@ -184,6 +194,7 @@ export const resetPassword = async (req, res) => {
   }
 };
 
+// check auth
 export const checkAuth = async (req, res) => {
   const userId = req.userId;
   const user = await User.findById(userId).select("-password");

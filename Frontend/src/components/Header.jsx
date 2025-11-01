@@ -1,11 +1,14 @@
 import { NavLink, Link } from "react-router-dom";
 import { Menu, X, ShoppingBasket, Search } from "lucide-react";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+  const { user, logout } = useContext(AuthContext);
+
   return (
     <div className="flex flex-col sticky top-0 z-50 bg-white shadow-md">
       <div className="h-16 w-full bg-inkporaPink  flex justify-between items-center px-1">
@@ -29,12 +32,27 @@ function Header() {
           />
         </form>
         <div className="flex gap-2">
-          <Link
+          {user ? (
+            <button
+              onClick={logout}
+              className="hidden md:flex bg-black text-white p-1 mr-2"
+            >
+              Logout
+            </button>
+          ) : (
+            <Link
+              to="/login"
+              className="hidden md:flex bg-black text-white p-1 mr-2"
+            >
+              Login/Signup
+            </Link>
+          )}
+          {/* <Link
             to={"/login"}
             className="hidden md:flex bg-black text-white p-1 mr-2"
           >
             Login/Signup
-          </Link>
+          </Link> */}
 
           <Link to={"/cart"}>
             <ShoppingBasket size={30} strokeWidth={1.5} />
@@ -61,13 +79,29 @@ function Header() {
           </div>
 
           <div className="flex flex-col items-start space-y-6 px-2 py-14 text-xl font-light">
-            <Link
+            {user ? (
+              <button
+                onClick={logout}
+                className="border-b w-full border-opacity-50 py-4"
+              >
+                Logout
+              </button>
+            ) : (
+              <Link
+                to="/login"
+                onClick={toggleMenu}
+                className="border-b w-full border-opacity-50 py-4"
+              >
+                Login/Signup
+              </Link>
+            )}
+            {/* <Link
               to="/login"
               onClick={toggleMenu}
               className="border-b w-full border-opacity-50 py-4"
             >
               Login/Signup
-            </Link>
+            </Link> */}
             <Link to="/" onClick={toggleMenu}>
               Home
             </Link>

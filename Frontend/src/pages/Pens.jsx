@@ -1,31 +1,48 @@
 import axios from "axios";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Products from "../components/Products.jsx";
 
 function Pens() {
-  const [product, setProduct] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios
       .get("http://localhost:8080/api/products")
       .then((response) => {
-        setProduct(response.data);
+        setProducts(response.data);
+        setLoading(false);
       })
       .catch((error) => {
-        console.log(err);
+        console.log("Error fetching products:", error);
+        setLoading(false);
       });
   }, []);
 
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center text-xl text-gray-600">
+        Loading products...
+      </div>
+    );
+  }
+
   return (
-    <>
-      {/* <div className="mx-35 grid grid-cols-4 gap-0.5 justify-evenly">
-        {product.map((item) => {
-          return <Products key={item._id} item={item} />;
-        })}
-      </div> */}
-      <h1>products</h1>
-    </>
+    <div className="bg-inkporabg min-h-screen px-6 py-12 md:px-40">
+      <h1 className="text-4xl font-dancingscript text-center mb-10 text-black">
+        Our Pen Collection
+      </h1>
+
+      {products.length === 0 ? (
+        <p className="text-center text-gray-500">No products available yet.</p>
+      ) : (
+        <div className="grid gap-6 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center">
+          {products.map((item) => (
+            <Products key={item._id} item={item} />
+          ))}
+        </div>
+      )}
+    </div>
   );
 }
 
