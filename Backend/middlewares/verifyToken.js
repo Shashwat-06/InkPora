@@ -14,6 +14,6 @@ export const verifyToken = (req, res, next) => {
     req.userId = decoded.userId;
     next();
   } catch (err) {
-    res.status(400).json({ success: true, message: "Something went wrong" });
+    res.status(400).json({ success: false, message: "Something went wrong" });
   }
 };

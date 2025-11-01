@@ -12,10 +12,14 @@ export const addToCart = async (req, res) => {
     const user = await User.findById(userId);
     const product = await Product.findById(productId);
     if (!user) {
-      res.status(400).json({ success: false, message: "user not found" });
+      return res
+        .status(400)
+        .json({ success: false, message: "user not found" });
     }
     if (!product) {
-      res.status(400).json({ success: false, message: "Product not found" });
+      return res
+        .status(400)
+        .json({ success: false, message: "Product not found" });
     }
 
     const existingProduct = user.cart.find(
@@ -73,7 +77,22 @@ export const deleteFromCart = async (req, res) => {
       success: true,
       message: "product removed from cart successfully",
     });
-  } catch (error) {
-    res.status(400).json({ success: false, message: error.message });
+  } catch (err) {
+    res.status(400).json({ success: false, message: err.message });
+  }
+};
+
+export const showCart = async (req, res) => {
+  const userId = req.userId;
+  try {
+    const user = await User.findById(userId).populate("cart.product");
+    console.log("HEHEHHEHEHEHHE", user);
+    if (!user) {
+      res.status(400).json({ success: false, message: "user not found" });
+    }
+    res.status(200).json({ success: true, cart: user.cart });
+  } catch (err) {
+    console.log(err);
+    res.status(400).json({ success: false, message: err.message });
   }
 };

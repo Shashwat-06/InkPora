@@ -1,8 +1,10 @@
 import mongoose from "mongoose";
+import dotenv from "dotenv";
+dotenv.config({ path: "../.env" });
 
 export const connectDb = async () => {
   try {
-    await mongoose.connect("mongodb://127.0.0.1:27017/inkpora");
+    await mongoose.connect(process.env.MONGO_URL);
     console.log("MongoDB connected");
   } catch (err) {
     console.log("error connecting to DB", err);

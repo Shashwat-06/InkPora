@@ -70,7 +70,7 @@ export const verifyMail = async (req, res) => {
     user.isVerified = true;
     user.verificationToken = undefined;
     user.verificationTokenExpiresAt = undefined;
-    user.save();
+    await user.save();
 
     await welcomeEmail(user.email, user.name);
 
@@ -79,7 +79,7 @@ export const verifyMail = async (req, res) => {
       .json({ success: true, message: "User Verified Successfully" });
   } catch (err) {
     res.status(400).json({ success: false, message: err.message });
-    console.log(error);
+    console.log(err);
   }
 };
 

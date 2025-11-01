@@ -19,6 +19,7 @@ export const AuthProvider = ({ children }) => {
         setUser(res.data.user);
       } catch (err) {
         setUser(null);
+        console.log("User not logged in");
       } finally {
         setLoading(false);
       }

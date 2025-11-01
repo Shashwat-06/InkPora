@@ -1,7 +1,9 @@
 import mongoose from "mongoose";
-
+import dotenv from "dotenv";
 import { Product } from "../models/product.js";
 import { products } from "./data.js";
+
+dotenv.config({ path: "../.env" });
 
 main()
   .then(() => {
@@ -11,7 +13,7 @@ main()
     console.log(err);
   });
 async function main() {
-  await mongoose.connect("mongodb://127.0.0.1:27017/inkpora");
+  await mongoose.connect(`${process.env.MONGO_URL}`);
 }
 
 const newData = async () => {

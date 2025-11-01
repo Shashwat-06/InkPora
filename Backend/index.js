@@ -9,12 +9,12 @@ import cors from "cors";
 
 const app = express();
 
+app.use(cookieParser());
 app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 
 dotenv.config();
 
 app.use(express.json());
-app.use(cookieParser());
 
 app.listen(process.env.PORT || 8080, () => {
   connectDb();

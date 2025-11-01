@@ -1,16 +1,14 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useEffect, useState, useContext } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import {
-  ShoppingCart,
-  CreditCard,
-  ChevronLeft,
-  ChevronRight,
-} from "lucide-react";
+import { ShoppingCart, ChevronLeft, ChevronRight } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
+import { AuthContext } from "../context/AuthContext";
 
 function Product() {
+  const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [recommendations, setRecommendations] = useState([]);
@@ -22,6 +20,24 @@ function Product() {
 
   const scrollPrev = () => emblaApi && emblaApi.scrollPrev();
   const scrollNext = () => emblaApi && emblaApi.scrollNext();
+
+  const addToCart = async () => {
+    try {
+      if (!user) {
+        navigate("/login");
+      }
+      if (user) {
+        const res = await axios.post(
+          "http://localhost:8080/api/cart/add",
+          { productId: id },
+          { withCredentials: true }
+        );
+        navigate("/cart");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   useEffect(() => {
     axios
@@ -80,12 +96,11 @@ function Product() {
           )}
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <button className="flex items-center justify-center gap-2 bg-inkporaPink text-black px-6 py-3 rounded-full hover:bg-pink-500 hover:text-white transition-all">
+            <button
+              onClick={addToCart}
+              className="flex items-center justify-center gap-2 bg-inkporaPink text-black px-6 py-3 rounded-full hover:bg-pink-500 hover:text-white transition-all"
+            >
               <ShoppingCart className="w-5 h-5" /> Add to Cart
-            </button>
-
-            <button className="flex items-center justify-center gap-2 border border-gray-300 text-gray-700 px-6 py-3 rounded-full hover:bg-gray-100 transition-all">
-              <CreditCard className="w-5 h-5" /> Buy Now
             </button>
           </div>
         </div>
