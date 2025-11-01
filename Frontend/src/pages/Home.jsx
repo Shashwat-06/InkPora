@@ -12,7 +12,7 @@ function Home() {
   const scrollNext = () => emblaApi && emblaApi.scrollNext();
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/api/products/`)
+      .get(`${import.meta.env.VITE_API_URL}/api/products/`)
       .then((response) => {
         setProducts(response.data);
       })
