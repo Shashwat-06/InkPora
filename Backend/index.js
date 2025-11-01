@@ -14,9 +14,12 @@ app.use(
   cors({
     origin: [
       "https://inkpora.shop",
-      "https://your-vercel-url.vercel.app",
+      "https://www.inkpora.shop",
+      "https://inkpora.vercel.app",
       "http://localhost:5173",
     ],
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
   })
 );
