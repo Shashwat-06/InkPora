@@ -17,7 +17,7 @@ function Cart() {
         }
         if (user) {
           const res = await axios.get(
-            "http://localhost:8080/api/cart/showItems",
+            `${import.meta.env.VITE_API_URL}/api/cart/showItems`,
             {
               withCredentials: true,
             }

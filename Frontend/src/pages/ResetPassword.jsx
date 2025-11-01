@@ -24,12 +24,12 @@ function ResetPassword() {
       console.log("Token from URL:", token);
       console.log(
         "Sending request to:",
-        `http://localhost:8080/api/auth/resetPassword/${token}`
+        `${import.meta.env.VITE_API_URL}/api/auth/resetPassword/${token}`
       );
       console.log("Form data:", formData);
 
       const res = await axios.post(
-        `http://localhost:8080/api/auth/resetPassword/${token}`,
+        `${import.meta.env.VITE_API_URL}/api/auth/resetPassword/${token}`,
         formData
       );
 

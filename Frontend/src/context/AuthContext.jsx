@@ -11,7 +11,7 @@ export const AuthProvider = ({ children }) => {
     const checkAuth = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:8080/api/auth/checkAuth",
+          `${import.meta.env.VITE_API_URL}/api/auth/checkAuth`,
           {
             withCredentials: true,
           }
@@ -29,7 +29,7 @@ export const AuthProvider = ({ children }) => {
 
   const logout = async () => {
     try {
-      await axios.get("http://localhost:8080/api/auth/logout", {
+      await axios.get(`${import.meta.env.VITE_API_URL}/api/auth/logout`, {
         withCredentials: true,
       });
       setUser(null);

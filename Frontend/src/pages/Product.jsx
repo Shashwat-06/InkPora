@@ -28,7 +28,7 @@ function Product() {
       }
       if (user) {
         const res = await axios.post(
-          "http://localhost:8080/api/cart/add",
+          `${import.meta.env.VITE_API_URL}/api/cart/add`,
           { productId: id },
           { withCredentials: true }
         );
@@ -41,12 +41,12 @@ function Product() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/api/products/showProduct/${id}`)
+      .get(`${import.meta.env.VITE_API_URL}/api/products/showProduct/${id}`)
       .then((response) => setProduct(response.data))
       .catch((error) => console.log(error));
 
     axios
-      .get(`http://localhost:8080/api/products`)
+      .get(`${import.meta.env.VITE_API_URL}/api/products`)
       .then((response) => {
         const others = response.data.filter((p) => p._id !== id).slice(0, 8);
         setRecommendations(others);
