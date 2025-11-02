@@ -8,7 +8,6 @@ function Pens() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios;
     api
       .get(`/api/products`)
       .then((response) => {
