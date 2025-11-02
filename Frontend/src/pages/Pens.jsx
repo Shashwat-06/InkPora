@@ -1,14 +1,16 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Products from "../components/Products.jsx";
+import api from "../api/axios.js";
 
 function Pens() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_API_URL}/api/products`)
+    axios;
+    api
+      .get(`/api/products`)
       .then((response) => {
         setProducts(response.data);
         setLoading(false);
