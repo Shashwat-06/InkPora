@@ -1,5 +1,5 @@
 import { NavLink, Link } from "react-router-dom";
-import { Menu, X, ShoppingBasket, User, LogOut, LogIn } from "lucide-react";
+import { Menu, X, ShoppingBasket, User, LogOut, Search } from "lucide-react";
 import { useState, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
@@ -42,13 +42,17 @@ function Header() {
         <Link to={"/"} className="absolute left-1/2 transform -translate-x-1/2">
           <img src="/assets/logo.png" className="h-30 w-30 cursor-pointer" />
         </Link>
-
-        <form action="" className="hidden md:flex px-4 py-2.5">
+        {/* search button for big devices */}
+        <form onSubmit={handleSubmit} className="hidden md:flex px-4 py-2.5">
           <input
             type="text"
             className="h-9 bg-inkporaFrame w-full rounded-2xl p-2 border"
             placeholder="Search"
+            onChange={handleSearch}
           />
+          <button className="px-2">
+            <Search size={30} strokeWidth={1.5} />
+          </button>
         </form>
 
         {/* Right icons */}
@@ -188,7 +192,10 @@ function Header() {
       </div>
 
       {/* Mobile search */}
-      <form className="w-full flex px-4 py-2.5 md:hidden">
+      <form
+        onSubmit={handleSubmit}
+        className="w-full flex px-4 py-2.5 md:hidden"
+      >
         <input
           type="text"
           className="h-9 bg-inkporaFrame w-full rounded-2xl p-2"
@@ -196,6 +203,9 @@ function Header() {
           value={search}
           onChange={handleSearch}
         />
+        <button className="px-2">
+          <Search size={30} strokeWidth={1.5} />
+        </button>
       </form>
     </div>
   );

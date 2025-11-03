@@ -19,7 +19,7 @@ function Search() {
         console.log("Error fetching products:", error);
         setLoading(false);
       });
-  }, []);
+  }, [searchParam]);
 
   if (loading) {
     return (
@@ -36,7 +36,9 @@ function Search() {
       </h1>
 
       {products.length === 0 ? (
-        <p className="text-center text-gray-500">No products available yet.</p>
+        <p className="text-center text-gray-500">
+          Looks like you searched for something we dont have.
+        </p>
       ) : (
         <div className="grid gap-6 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center">
           {products.map((item) => (
