@@ -2,16 +2,29 @@ import { NavLink, Link } from "react-router-dom";
 import { Menu, X, ShoppingBasket, User, LogOut, LogIn } from "lucide-react";
 import { useState, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const { user, logout } = useContext(AuthContext);
+  const [search, setSearch] = useState("");
+
+  const navigate = useNavigate();
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
   // toggle dropdown manually for mobile tap
   const toggleUserMenu = () => setIsUserMenuOpen((prev) => !prev);
+
+  const handleSearch = (e) => {
+    setSearch(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (search.trim()) navigate(`/search/${search}`);
+  };
 
   return (
     <div className="flex flex-col sticky top-0 z-50 bg-white shadow-md">
@@ -175,11 +188,13 @@ function Header() {
       </div>
 
       {/* Mobile search */}
-      <form action="" className="w-full flex px-4 py-2.5 md:hidden">
+      <form className="w-full flex px-4 py-2.5 md:hidden">
         <input
           type="text"
           className="h-9 bg-inkporaFrame w-full rounded-2xl p-2"
           placeholder="Search"
+          value={search}
+          onChange={handleSearch}
         />
       </form>
     </div>

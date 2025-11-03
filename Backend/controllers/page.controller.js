@@ -16,7 +16,12 @@ export const individualProduct = async (req, res) => {
 export const searchData = async (req, res) => {
   const searchParam = req.params.searchParam;
   const data = await Product.find({
-    title: { $regex: searchParam, $options: "i" },
+    $or: [
+      { title: { $regex: searchParam, $options: "i" } },
+      { category: { $regex: searchParam, $options: "i" } },
+      { description: { $regex: searchParam, $options: "i" } },
+      { detail: { $regex: searchParam, $options: "i" } },
+    ],
   });
   if (!data) {
     res

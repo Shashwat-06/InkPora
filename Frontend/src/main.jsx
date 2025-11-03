@@ -21,6 +21,7 @@ import VerifyEmail from "./pages/VerifyEmail.jsx";
 import ForgotPassword from "./pages/ForgotPassword.jsx";
 import ResetPassword from "./pages/ResetPassword.jsx";
 import User from "./pages/User.jsx";
+import Search from "./pages/search.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -35,6 +36,7 @@ const router = createBrowserRouter(
       <Route path="/verifyEmail" element={<VerifyEmail />} />
       <Route path="/forgotPassword" element={<ForgotPassword />} />
       <Route path="/resetPassword/:token" element={<ResetPassword />} />
+      <Route path="/search/:searchParam" element={<Search />} />
       <Route path="/products/:id" element={<Product />} />
     </Route>
   )
