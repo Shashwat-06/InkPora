@@ -8,5 +8,6 @@ const router = express.Router();
 
 router.get("/", productData);
 router.get("/showProduct/:id", individualProduct);
+router.get("/search/:searchParam", individualProduct);
 
 export default router;

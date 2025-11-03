@@ -12,3 +12,17 @@ export const individualProduct = async (req, res) => {
   const data = await Product.findById(id);
   res.send(data);
 };
+
+export const searchData = async (req, res) => {
+  const { searchParam } = req.params;
+  const data = await Product.find({
+    title: { $regex: searchParam, $options: "i" },
+  });
+  if (!data) {
+    res
+      .status(400)
+      .json({ success: false, message: "no such product in inventory" });
+  }
+  console.log(data);
+  res.send(data);
+};
