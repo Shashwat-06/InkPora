@@ -14,7 +14,7 @@ export const individualProduct = async (req, res) => {
 };
 
 export const searchData = async (req, res) => {
-  const { searchParam } = req.params;
+  const searchParam = req.params.searchParam;
   const data = await Product.find({
     title: { $regex: searchParam, $options: "i" },
   });
