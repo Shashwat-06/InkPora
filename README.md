@@ -1,7 +1,7 @@
 # InkPora
 
-**InkPora** is a modern e-commerce web application for premium stationery and creative products.  
-Built with the **MERN stack**, it features a smooth shopping experience, secure authentication, and a visually appealing design.
+**InkPora** is a modern e-commerce web application focused on premium stationery and creative products.  
+Built using the **MERN stack**, it delivers a smooth shopping experience, secure authentication, and a visually refined user interface.
 
 ---
 
@@ -18,8 +18,10 @@ Built with the **MERN stack**, it features a smooth shopping experience, secure 
 
 ### Backend
 
-- Node.js + Express
-- MongoDB + Mongoose
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
 - JWT Authentication
 - Bcrypt Password Hashing
 - CORS
@@ -41,13 +43,13 @@ Built with the **MERN stack**, it features a smooth shopping experience, secure 
 
 ## Features
 
-✅ User Authentication (Signup / Login / JWT-based sessions)  
-✅ Product Management (MongoDB Models)  
+✅ User Authentication with JWT-based sessions  
+✅ Product Management using MongoDB models  
 ✅ Dynamic Product Carousel  
-✅ Search Functionality (by name, category, etc.)  
-✅ Shopping Cart System  
-✅ Responsive UI (Mobile + Desktop)  
-✅ Fully Deployed (Frontend + Backend + Database)
+✅ Search functionality by name and category  
+✅ Shopping Cart system  
+✅ Fully responsive UI for mobile and desktop  
+✅ Complete deployment of frontend backend and database
 
 ---
 
@@ -74,9 +76,9 @@ Built with the **MERN stack**, it features a smooth shopping experience, secure 
 ## Author
 
 **Shashwat**  
-Building InkPora — a minimalist stationery brand with an aesthetic touch.
+Building InkPora — a minimalist stationery brand with an aesthetic focus.
 
-[www.inkpora.shop](https://www.inkpora.shop)
+[https://www.inkpora.shop](https://www.inkpora.shop)
 
 ---
 
