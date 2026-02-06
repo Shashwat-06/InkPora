@@ -1,3 +1,114 @@
+// import { Link } from "react-router-dom";
+// import useEmblaCarousel from "embla-carousel-react";
+// import { useState, useEffect } from "react";
+// import { ChevronLeft, ChevronRight } from "lucide-react";
+// import axios from "axios";
+
+// function Home() {
+//   const [products, setProducts] = useState([]);
+//   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+
+//   const scrollPrev = () => emblaApi && emblaApi.scrollPrev();
+//   const scrollNext = () => emblaApi && emblaApi.scrollNext();
+//   console.log("API URL:", import.meta.env.VITE_API_URL);
+//   useEffect(() => {
+//     axios
+//       .get(`${import.meta.env.VITE_API_URL}/api/products/`)
+//       .then((response) => {
+//         setProducts(response.data);
+//       })
+//       .catch((error) => {
+//         console.log(error);
+//       });
+//   }, []);
+//   return (
+//     <div className="flex flex-col bg-inkporabg">
+//       <div className="relative w-full p-4 px-10 xl:px-40">
+//         <img src="/assets/smPoster1.png" className="md:hidden z-0 " />
+//         <img src="/assets/lgPoster.png" className=" hidden md:flex z-0 " />
+//         <Link
+//           to={"/pens"}
+//           className="absolute bottom-40 md:bottom-15 left-1/2 transform -translate-x-1/2 bg-inkporabg text-black font-light px-6 py-2 shadow-md hover:bg-inkporaFrame hover:text-gray-800 transition-all duration-300 h-10 lg:text-3xl lg:h-16"
+//         >
+//           Shop Now
+//         </Link>
+//       </div>
+
+//       {/* carrousel */}
+//       <div className="relative w-full mt-8">
+//         <div className="overflow-hidden" ref={emblaRef}>
+//           <div className="flex">
+//             {products.slice(0, 5).map((item) => (
+//               <Link
+//                 to={`/products/${item._id}`}
+//                 key={item._id}
+//                 className="flex-[0_0_70%] sm:flex-[0_0_33.3%] px-2"
+//               >
+//                 <div className="bg-inkporaFrame  px-1 py-10 text-center">
+//                   <img
+//                     src={item.productImage}
+//                     alt={item.title}
+//                     className="w-full h-60 sm:h-60 md:h-60 lg:h-80 xl:h-100 px-4"
+//                   />
+//                   <div className="flex flex-row justify-between w-full px-4">
+//                     <h3 className="mt-2 font-medium font-poppins">
+//                       {item.title}
+//                     </h3>
+//                     <h3 className="mt-2 font-medium font-poppins">
+//                       &#8377;{item.price}
+//                     </h3>
+//                   </div>
+//                 </div>
+//               </Link>
+//             ))}
+//           </div>
+//         </div>
+
+//         {/* Left Arrow */}
+//         <button
+//           onClick={scrollPrev}
+//           className="hidden  sm:flex absolute top-1/2 left-2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow-md "
+//         >
+//           <ChevronLeft className="w-5 h-5" />
+//         </button>
+
+//         {/* Right Arrow */}
+//         <button
+//           onClick={scrollNext}
+//           className="hidden sm:flex absolute top-1/2 right-2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow-md "
+//         >
+//           <ChevronRight className="w-5 h-5" />
+//         </button>
+//       </div>
+
+//       <div className="bg-inkporabg mt-5 w-full flex flex-col items-center py-20 ">
+//         <h2 className="font-dancingscript text-4xl font-light mb-4 text-center">
+//           Follow us @inkPora
+//         </h2>
+
+//         <div className="flex flex-wrap justify-center gap-4 w-[90%] max-w-5xl overflow-hidden">
+//           <img
+//             src="/assets/poster1.png"
+//             alt="poster"
+//             className="shadow-2xl rounded-2xl object-cover w-72 h-72"
+//           />
+//           <img
+//             src="/assets/poster2.png"
+//             alt="poster"
+//             className="shadow-2xl rounded-2xl object-cover w-72 h-72"
+//           />
+//           <img
+//             src="/assets/poster3.png"
+//             alt="poster"
+//             className="shadow-2xl rounded-2xl object-cover w-72 h-72"
+//           />
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default Home;
 import { Link } from "react-router-dom";
 import useEmblaCarousel from "embla-carousel-react";
 import { useState, useEffect } from "react";
@@ -14,62 +125,97 @@ function Home() {
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_API_URL}/api/products/`)
-      .then((res) => setProducts(res.data));
+      .then((response) => setProducts(response.data))
+      .catch((error) => console.log(error));
   }, []);
 
   return (
-    <div className="bg-inkporabg">
-      {/* Hero */}
-      <div className="relative px-4 sm:px-8 lg:px-24">
+    <div className="flex flex-col bg-inkporabg">
+      {/* HERO SECTION */}
+      <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <img src="/assets/smPoster1.png" className="md:hidden w-full" />
         <img src="/assets/lgPoster.png" className="hidden md:block w-full" />
 
         <Link
           to="/pens"
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 bg-inkporabg px-6 py-2 shadow-md hover:bg-inkporaFrame transition"
+          className="absolute bottom-12 md:bottom-16 left-1/2 -translate-x-1/2 bg-inkporabg text-black font-light px-6 py-2 shadow-md hover:bg-inkporaFrame hover:text-gray-800 transition-all duration-300 h-10 lg:text-3xl lg:h-16 flex items-center"
         >
           Shop Now
         </Link>
       </div>
 
-      {/* Carousel */}
-      <div className="relative max-w-7xl mx-auto mt-16 px-4">
-        <div ref={emblaRef} className="overflow-hidden">
-          <div className="flex">
-            {products.slice(0, 5).map((item) => (
-              <Link
-                key={item._id}
-                to={`/products/${item._id}`}
-                className="flex-[0_0_70%] sm:flex-[0_0_33.33%] px-3"
-              >
-                <div className="bg-inkporaFrame p-4">
-                  <img
-                    src={item.productImage}
-                    alt={item.title}
-                    className="w-full h-64 object-contain"
-                  />
-                  <div className="flex justify-between mt-2 text-sm">
-                    <span>{item.title}</span>
-                    <span>₹{item.price}</span>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
+      {/* CAROUSEL */}
+      <div className="relative w-full mt-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="overflow-hidden" ref={emblaRef}>
+            <div className="flex">
+              {products.slice(0, 5).map((item) => (
+                <Link
+                  to={`/products/${item._id}`}
+                  key={item._id}
+                  className="flex-[0_0_70%] sm:flex-[0_0_33.333%] px-3"
+                >
+                  <div className="bg-inkporaFrame p-4 transition hover:shadow-md">
+                    {/* Square, predictable card */}
+                    <div className="aspect-square flex items-center justify-center">
+                      <img
+                        src={item.productImage}
+                        alt={item.title}
+                        className="w-full h-full object-contain p-4"
+                      />
+                    </div>
 
-        <button
-          onClick={scrollPrev}
-          className="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow"
-        >
-          <ChevronLeft />
-        </button>
-        <button
-          onClick={scrollNext}
-          className="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow"
-        >
-          <ChevronRight />
-        </button>
+                    <div className="flex justify-between items-start w-full mt-3 text-sm font-medium font-poppins">
+                      <h3 className="line-clamp-1">{item.title}</h3>
+                      <h3 className="whitespace-nowrap">₹{item.price}</h3>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Left Arrow */}
+          <button
+            onClick={scrollPrev}
+            className="hidden sm:flex absolute top-1/2 left-2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow-md"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+
+          {/* Right Arrow */}
+          <button
+            onClick={scrollNext}
+            className="hidden sm:flex absolute top-1/2 right-2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow-md"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+        </div>
+      </div>
+
+      {/* SOCIAL SECTION */}
+      <div className="bg-inkporabg mt-20 w-full flex flex-col items-center py-20">
+        <h2 className="font-dancingscript text-4xl font-light mb-8 text-center">
+          Follow us @inkPora
+        </h2>
+
+        <div className="flex flex-wrap justify-center gap-6 w-[90%] max-w-5xl">
+          <img
+            src="/assets/poster1.png"
+            alt="poster"
+            className="shadow-2xl rounded-2xl object-cover w-72 h-72"
+          />
+          <img
+            src="/assets/poster2.png"
+            alt="poster"
+            className="shadow-2xl rounded-2xl object-cover w-72 h-72"
+          />
+          <img
+            src="/assets/poster3.png"
+            alt="poster"
+            className="shadow-2xl rounded-2xl object-cover w-72 h-72"
+          />
+        </div>
       </div>
     </div>
   );
