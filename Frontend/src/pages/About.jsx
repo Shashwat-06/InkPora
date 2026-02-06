@@ -16,7 +16,7 @@ function About() {
       {/* Story Section */}
       <div className="max-w-5xl mx-auto flex flex-col lg:flex-row items-center gap-10 mb-20">
         <img
-          src="/assets/aboutUs1.png"
+          src="/assets/aboutUs1.webp"
           alt="Our story"
           className="w-full lg:w-1/2 rounded-2xl shadow-md object-cover"
         />
@@ -35,7 +35,7 @@ function About() {
       {/* Mission Section */}
       <div className="max-w-5xl mx-auto flex flex-col lg:flex-row-reverse items-center gap-10 mb-20">
         <img
-          src="/assets/aboutUs2.png"
+          src="/assets/aboutUs2.webp"
           alt="Our mission"
           className="w-full lg:w-1/2 rounded-2xl shadow-md object-cover"
         />

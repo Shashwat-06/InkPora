@@ -91,17 +91,17 @@ function Home() {
 
         <div className="flex flex-wrap justify-center gap-6 w-[90%] max-w-5xl">
           <img
-            src="/assets/poster1.png"
+            src="/assets/poster1.webp"
             alt="poster"
             className="shadow-2xl rounded-2xl object-cover w-72 h-72"
           />
           <img
-            src="/assets/poster2.png"
+            src="/assets/poster2.webp"
             alt="poster"
             className="shadow-2xl rounded-2xl object-cover w-72 h-72"
           />
           <img
-            src="/assets/poster3.png"
+            src="/assets/poster3.webp"
             alt="poster"
             className="shadow-2xl rounded-2xl object-cover w-72 h-72"
           />

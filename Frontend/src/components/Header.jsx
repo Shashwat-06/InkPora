@@ -40,7 +40,7 @@ function Header() {
 
         {/* Logo */}
         <Link to={"/"} className="absolute left-1/2 transform -translate-x-1/2">
-          <img src="/assets/logo.png" className="h-30 w-30 cursor-pointer" />
+          <img src="/assets/logo.webp" className="h-30 w-30 cursor-pointer" />
         </Link>
         {/* search button for big devices */}
         <form onSubmit={handleSubmit} className="hidden md:flex px-4 py-2.5">
@@ -155,7 +155,7 @@ function Header() {
               className="absolute left-1/2 transform -translate-x-1/2 mt-8"
             >
               <img
-                src="/assets/logo.png"
+                src="/assets/logo.webp"
                 className="h-30 w-30 cursor-pointer"
               />
             </Link>
