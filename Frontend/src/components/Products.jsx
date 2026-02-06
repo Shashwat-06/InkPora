@@ -45,16 +45,16 @@ function Products({ item }) {
       onClick={handleClick}
       className="cursor-pointer w-full flex flex-col transition hover:shadow-md"
     >
-      {/* Square image */}
-      <div className="aspect-square bg-inkporaFrame flex items-center justify-center overflow-hidden">
+      {/* RECTANGULAR IMAGE CONTAINER */}
+      <div className="aspect-[4/5] bg-inkporaFrame overflow-hidden">
         <img
           src={item.productImage}
           alt={item.title}
-          className="w-full h-full object-contain p-4 transition-transform duration-300 hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
         />
       </div>
 
-      {/* Text */}
+      {/* TEXT */}
       <div className="pt-3 flex flex-col gap-1">
         <div className="flex justify-between items-start text-sm sm:text-base font-medium">
           <h1 className="font-playfair line-clamp-2">{item.title}</h1>

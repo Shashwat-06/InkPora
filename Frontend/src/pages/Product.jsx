@@ -218,19 +218,21 @@ function Product() {
   }
 
   return (
-    <div className="bg-inkporabg min-h-screen px-4 sm:px-8 md:px-16 py-12">
-      {/* Main PDP */}
+    <div className="bg-inkporabg min-h-screen py-12 px-4 sm:px-8">
+      {/* PDP */}
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24">
-        {/* Image */}
-        <div className="bg-inkporaFrame border border-gray-200 p-6 flex items-center justify-center">
-          <img
-            src={product.productImage}
-            alt={product.title}
-            className="w-full max-w-md aspect-square object-contain"
-          />
+        {/* IMAGE */}
+        <div className="bg-inkporaFrame overflow-hidden">
+          <div className="aspect-[4/5]">
+            <img
+              src={product.productImage}
+              alt={product.title}
+              className="w-full h-full object-cover"
+            />
+          </div>
         </div>
 
-        {/* Details */}
+        {/* DETAILS */}
         <div className="flex flex-col gap-4">
           <h1 className="text-3xl font-dancingscript text-black">
             {product.title}
@@ -258,7 +260,7 @@ function Product() {
         </div>
       </div>
 
-      {/* Recommendations */}
+      {/* RECOMMENDATIONS */}
       {recommendations.length > 0 && (
         <div className="max-w-7xl mx-auto">
           <h2 className="text-2xl font-dancingscript text-center mb-8">
@@ -274,17 +276,16 @@ function Product() {
                     to={`/products/${item._id}`}
                     className="flex-[0_0_70%] sm:flex-[0_0_33.33%] lg:flex-[0_0_25%] px-3"
                   >
-                    <div className="bg-inkporaFrame p-4 transition hover:shadow-md">
-                      {/* Square card */}
-                      <div className="aspect-square flex items-center justify-center">
+                    <div className="bg-inkporaFrame transition hover:shadow-md">
+                      <div className="aspect-[4/5] overflow-hidden">
                         <img
                           src={item.productImage}
                           alt={item.title}
-                          className="w-full h-full object-contain p-4"
+                          className="w-full h-full object-cover"
                         />
                       </div>
 
-                      <div className="mt-3 flex justify-between text-sm">
+                      <div className="px-3 py-3 flex justify-between text-sm">
                         <span className="line-clamp-1">{item.title}</span>
                         <span>₹{item.price}</span>
                       </div>
