@@ -37,7 +37,7 @@ function Pens() {
       {products.length === 0 ? (
         <p className="text-center text-gray-500">No products available yet.</p>
       ) : (
-        <div className="grid gap-6 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center">
+        <div className="grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {products.map((item) => (
             <Products key={item._id} item={item} />
           ))}
