@@ -144,8 +144,8 @@ function Home() {
         </Link>
       </div>
 
-      {/* CAROUSEL */}
-      <div className="relative w-full mt-12">
+      {/* PRODUCT CAROUSEL */}
+      <div className="relative w-full mt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex">
@@ -153,19 +153,20 @@ function Home() {
                 <Link
                   to={`/products/${item._id}`}
                   key={item._id}
-                  className="flex-[0_0_70%] sm:flex-[0_0_33.333%] px-3"
+                  className="flex-[0_0_70%] sm:flex-[0_0_33.333%] lg:flex-[0_0_25%] px-3"
                 >
-                  <div className="bg-inkporaFrame p-4 transition hover:shadow-md">
-                    {/* Square, predictable card */}
-                    <div className="aspect-square flex items-center justify-center">
+                  <div className="bg-inkporaFrame transition hover:shadow-md">
+                    {/* RECTANGULAR IMAGE (same as Pens/Product) */}
+                    <div className="aspect-[4/5] overflow-hidden">
                       <img
                         src={item.productImage}
                         alt={item.title}
-                        className="w-full h-full object-contain p-4"
+                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                       />
                     </div>
 
-                    <div className="flex justify-between items-start w-full mt-3 text-sm font-medium font-poppins">
+                    {/* TEXT */}
+                    <div className="px-3 py-3 flex justify-between items-start text-sm font-medium font-poppins">
                       <h3 className="line-clamp-1">{item.title}</h3>
                       <h3 className="whitespace-nowrap">₹{item.price}</h3>
                     </div>
@@ -175,7 +176,7 @@ function Home() {
             </div>
           </div>
 
-          {/* Left Arrow */}
+          {/* LEFT ARROW */}
           <button
             onClick={scrollPrev}
             className="hidden sm:flex absolute top-1/2 left-2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow-md"
@@ -183,7 +184,7 @@ function Home() {
             <ChevronLeft className="w-5 h-5" />
           </button>
 
-          {/* Right Arrow */}
+          {/* RIGHT ARROW */}
           <button
             onClick={scrollNext}
             className="hidden sm:flex absolute top-1/2 right-2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow-md"
