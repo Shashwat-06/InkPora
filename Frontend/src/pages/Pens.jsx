@@ -115,33 +115,48 @@ function Pens() {
 
             {/* PAGINATION */}
             {totalPages > 1 && (
-              <div className="flex justify-center items-center gap-2 mt-12">
+              <div className="mt-12 flex flex-wrap justify-center items-center gap-2 sm:gap-3">
+                {/* Prev */}
                 <button
                   onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
                   disabled={currentPage === 1}
-                  className="px-4 py-2 border rounded disabled:opacity-40"
+                  className="px-4 py-2 rounded-full border border-gray-300 text-sm font-medium text-gray-700
+                 hover:bg-inkporaFrame transition
+                 disabled:opacity-40 disabled:cursor-not-allowed"
                 >
                   Prev
                 </button>
 
-                {[...Array(totalPages)].map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setCurrentPage(i + 1)}
-                    className={`px-4 py-2 border rounded ${
-                      currentPage === i + 1 ? "bg-black text-white" : "bg-white"
-                    }`}
-                  >
-                    {i + 1}
-                  </button>
-                ))}
+                {/* Page numbers */}
+                {[...Array(totalPages)].map((_, i) => {
+                  const page = i + 1;
+                  const isActive = page === currentPage;
 
+                  return (
+                    <button
+                      key={page}
+                      onClick={() => setCurrentPage(page)}
+                      className={`w-10 h-10 rounded-full text-sm font-medium transition
+            ${
+              isActive
+                ? "bg-black text-white"
+                : "border border-gray-300 text-gray-700 hover:bg-inkporaFrame"
+            }`}
+                    >
+                      {page}
+                    </button>
+                  );
+                })}
+
+                {/* Next */}
                 <button
                   onClick={() =>
                     setCurrentPage((p) => Math.min(p + 1, totalPages))
                   }
                   disabled={currentPage === totalPages}
-                  className="px-4 py-2 border rounded disabled:opacity-40"
+                  className="px-4 py-2 rounded-full border border-gray-300 text-sm font-medium text-gray-700
+                 hover:bg-inkporaFrame transition
+                 disabled:opacity-40 disabled:cursor-not-allowed"
                 >
                   Next
                 </button>
